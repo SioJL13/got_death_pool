@@ -19,6 +19,18 @@ var port = process.env.PORT || 5001;
 // Get routes
 let apiRoutes = require('./api/api-routes');
 
+const allowedOrigins = ["http://localhost:8000", "http://127.0.0.1:5500"]
+
+app.use(function (req, res, next) {
+    var origin = req.headers.origin;
+    if (allowedOrigins.indexOf(origin) > -1) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    }
+    res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+    return next();
+});
+
 // Configure body parser to handle post requests
 app.use(bodyParser.urlencoded({
     extended: true
