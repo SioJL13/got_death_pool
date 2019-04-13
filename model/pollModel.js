@@ -8,8 +8,7 @@
 var mongoose = require('mongoose');
 
 var questionsSchema = mongoose.Schema({
-    isAlive: Boolean,
-    isWhiteWalker: Boolean,
+    status: String,
     character: String
 });
 
