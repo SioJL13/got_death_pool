@@ -19,7 +19,7 @@ var port = process.env.PORT || 5001;
 // Get routes
 let apiRoutes = require('./api/api-routes');
 
-const allowedOrigins = ["http://localhost:8000", "http://127.0.0.1:5500"]
+const allowedOrigins = ["http://localhost:8000", "http://127.0.0.1:5500","https://got-tool.herokuapp.com"]
 
 app.use(function (req, res, next) {
     var origin = req.headers.origin;
